@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: black; /* Fundo preto para destacar o neon */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', monospace; /* Fonte estilo retrô */
+    color: white; /* Texto branco padrão */
+}
+
+/* Container principal com moldura neon */
+.container {
+    text-align: center;
+    padding: 40px; /* Espaçamento interno */
+    border: 5px solid transparent; /* Borda inicial transparente */
+    border-radius: 15px;
+    background: none; /* Fundo transparente */
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.8); /* Brilho rosa neon */
+    animation: glowing-border 2s infinite; /* Animação da borda */
+    width: 80%; /* Largura do painel */
+    max-width: 600px; /* Limita a largura máxima */
+    position: relative; /* Necessário para o gradiente */
+}
+
+/* Moldura gradiente com efeito neon */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    padding: 5px; /* Espaço para o gradiente */
+    background: linear-gradient(135deg, #ff00ff, #ff1493, #00ffff, #9400d3); /* Gradiente neon */
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1; /* Coloca o gradiente atrás do conteúdo */
+}
+
+/* Animação da borda brilhante */
+@keyframes glowing-border {
+    0% {
+        box-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff;
+    }
+    50% {
+        box-shadow: 0 0 30px #9400d3, 0 0 40px #ff1493;
+    }
+    100% {
+        box-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff;
+    }
+}
+
+/* Títulos e textos chamativos */
+h1, .game-title {
+    font-size: 2.5rem; /* Tamanho do título */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    text-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff; /* Efeito neon */
+    color: white; /* Texto branco */
+    margin-bottom: 20px;
+}
+
+/* Descrição */
+p, .game-description {
+    font-size: 1.2rem; /* Tamanho do texto */
+    text-shadow: 0 0 10px #9400d3, 0 0 20px #ff1493; /* Efeito neon */
+    color: white; /* Texto branco */
+    margin-bottom: 20px;
+}
+
+/* Input de texto */
+.game-input {
+    font-size: 1.2rem; /* Tamanho do texto no input */
+    color: #00ffff; /* Texto azul neon no input */
+    background: black; /* Fundo preto */
+    border: 2px solid #ff1493; /* Borda rosa neon */
+    border-radius: 8px;
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #ff1493; /* Brilho neon no input */
+}
+
+/* Estilo padrão para os botões */
+.game-button {
+    border: 2px solid #ff00ff; /* Borda rosa neon */
+    background-color: black; /* Fundo preto */
+    color: white; /* Texto branco */
+    padding: 10px 20px;
+    font-size: 1rem; /* Tamanho de fonte uniforme */
+    cursor: pointer;
+    border-radius: 8px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Press Start 2P', monospace; /* Fonte uniforme */
+    text-transform: uppercase; /* Texto em maiúsculas */
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff; /* Efeito neon */
+    margin: 0 10px;
+    box-shadow: 0 0 15px #ff00ff; /* Brilho neon nos botões */
+}
+
+/* Efeito ao passar o mouse */
+.game-button:hover {
+    background-color: #ff1493; /* Fundo rosa neon ao passar o mouse */
+    color: black; /* Texto preto */
+}
+
+/* Botão desabilitado */
+.game-button:disabled {
+    border-color: #555;
+    background-color: #555; /* Fundo cinza para botões desabilitados */
+    color: #ccc; /* Texto cinza claro */
+    cursor: not-allowed;
+}
+
+/* Centraliza os botões */
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 1250px) {
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .container__botao {
+        font-size: 16px;
+    }
+
+
+    .texto__paragrafo {
+        font-size: 24px;
+    }
+
+    .container__imagem-pessoa {
+        display: none;
+    }
+
+    .container__conteudo {
+        display: block;
+        position: inherit;
+    }
+
+    .container__informacoes {
+        padding: 1rem
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .game-title {
+        font-size: 1.2rem;
+    }
+
+    .game-description {
+        font-size: 0.9rem;
+    }
+
+    .game-input {
+        font-size: 0.9rem;
+    }
+
+    .game-button {
+        font-size: 0.7rem;
+    }
+}
