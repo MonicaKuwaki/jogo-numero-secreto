@@ -40,7 +40,6 @@ Inclui narração das mensagens usando **responsiveVoice**.
 
 ## Visualização Online
 Teste o jogo diretamente no navegador: [Clique aqui para jogar](https://numerosecretobymonica.vercel.app/)  
-*(Substitua pelo link do seu GitHub Pages após publicar)*
 
 ---
 
